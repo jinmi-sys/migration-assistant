@@ -1,0 +1,60 @@
+{
+  "machine": {
+    "hostname": "test-server",
+    "os_type": "ubuntu",
+    "os_version": "22.04",
+    "kernel": "5.15.0",
+    "arch": "x86_64",
+    "total_memory_mb": 8192,
+    "cpu_cores": 4,
+    "disk_free_gb": 100.0,
+    "docker_installed": true,
+    "docker_version": "24.0.7",
+    "python_version": "3.11.5",
+    "shell": "/bin/bash",
+    "user": "root",
+    "ssh_port": 22
+  },
+  "services": [
+    {
+      "name": "nginx",
+      "status": "running",
+      "pid": 1234,
+      "ports": [
+        {
+          "port": 80,
+          "protocol": "tcp",
+          "bind_address": "0.0.0.0",
+          "service_name": "nginx"
+        }
+      ],
+      "config_files": [
+        "/etc/nginx/nginx.conf"
+      ],
+      "env_files": [],
+      "working_dir": "",
+      "executable": "",
+      "systemd_unit": "nginx.service",
+      "docker_container": null,
+      "docker_image": null,
+      "dependencies": [],
+      "data_dirs": [],
+      "log_files": []
+    }
+  ],
+  "env_files": {
+    "/opt/app/.env": "[ENCRYPTED]"
+  },
+  "port_map": {
+    "80": "nginx"
+  },
+  "systemd_units": [
+    "nginx"
+  ],
+  "docker_containers": [],
+  "cron_jobs": [],
+  "firewall_rules": [],
+  "nginx_configs": [
+    "default"
+  ]
+}

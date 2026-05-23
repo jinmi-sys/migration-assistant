@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mimo-migration-assistant"
+version = "0.1.0"
+description = "AI-powered server migration assistant powered by MiMo-V2.5-Pro"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = [
+    "paramiko>=3.0",
+    "cryptography>=41.0",
+    "pydantic>=2.0",
+    "httpx>=0.27",
+    "rich>=13.0",
+    "click>=8.0",
+    "jinja2>=3.1",
+    "psutil>=5.9",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-asyncio>=0.21", "pytest-cov>=4.0", "ruff>=0.4", "mypy>=1.10"]
+
+[project.scripts]
+migrate = "mimo_migration_assistant.cli.main:cli"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+pythonpath = ["src"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mimo_migration_assistant"]
